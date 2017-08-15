@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.taotao.common.pojo.EasyUITreeNode;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
+import com.taotao.jedis.JedisClient;
 import com.taotao.mapper.TbContentCategoryMapper;
 import com.taotao.pojo.TbContentCategory;
 import com.taotao.pojo.TbContentCategoryExample;
@@ -25,6 +26,9 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	@Autowired
 	private TbContentCategoryMapper tbContentCategoryMapper;
+	// 缓存
+	@Autowired
+	private JedisClient jedisClient;
 	
 	/**
 	 * 内容分类查询
